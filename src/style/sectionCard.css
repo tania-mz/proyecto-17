@@ -1,0 +1,112 @@
+@import url('../style/global.css');
+/*  Para llamar un color solo se pone por ejemplo  background-color: var(--color-fondo);
+  --color-titulo : #5FD3ED;
+  --color-background: #252634;
+  --color-details: #616489;
+  --color-text: #FFFFFF;
+  --color-text-2: #B9B7B7; 
+*/
+
+.trendingPreview-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: hwb(200 27% 72% / 0.2);
+  padding: 2%;
+  border-radius: 40px;
+  color: var(--color-titulo);
+}
+
+.trendingPreview-movieList p {
+  color: #ffffff;
+}
+
+/* tvShow.css */
+.trendingPreview-movieList {
+  display: flex;
+  overflow: hidden;
+}
+
+.movie-container {
+  margin: 5px;
+  border-radius: 10px;
+  background-color: #1A1A1A;
+  text-align: center;
+  flex: 0 0 auto;
+  width: 200px; /* Ajusta este valor según tus necesidades */
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.persson-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+/*   background-color: hwb(200 27% 72% / 0.2); */
+  padding: 0;
+  margin: 0;
+  border-radius: 40px;
+  color: var(--color-titulo);
+}
+
+.persson-img {
+  width: 50%;
+  height: 50%;
+  margin: 0;
+  border-radius: 50%;
+}
+
+
+#trendingTvPreview, #trendingPeoplePreview, #trendingPreview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+/*   background-color: hwb(180 2% 62%); */
+  padding: 2%;
+  border-radius: 40px;
+  color: var(--color-titulo);
+}
+
+
+.trendingPreview-container {
+  border: 1px #424247; /* Borde adaptable */
+  border-radius: 10px; /* Borde redondeado */
+  padding: 20px;
+  max-width: 1200px; /* Limita el ancho máximo del contenedor */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+}
+
+.trendingPreview-movieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.movie-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+.movie-container:hover {
+  cursor: pointer;
+  background-color: var(--color-titulo);
+  color: #1A1A1A;
+}

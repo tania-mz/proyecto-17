@@ -1,0 +1,40 @@
+/* styles.css */
+@import url('../style/variable.css');
+/*  Para llamar un color solo se pone por ejemplo  background-color: var(--color-fondo);
+  --color-titulo : #5FD3ED;
+  --color-background: #252634;
+  --color-details: #616489;
+  --color-text: #FFFFFF;
+  --color-text-2: #B9B7B7; */
+
+  
+.container-carrusel {
+  display: grid;
+}
+
+.trendingPreview-movieList {
+  width: 80%;
+  display: flex;
+  /* overflow-x: scroll; */
+  width: max-content;
+}
+
+.trendingPreview, h2{
+  color: #5FD3ED;
+}
+
+.movie-container {
+  flex: 0 0 auto;
+  width: 20%; /* Ajusta el ancho al 20% para mostrar 5 elementos a la vez */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.movie-container p {
+  color: var(--color-text-2);
+}
+
+.movie-img {
+  width: 100%;
+  border-radius: 8px;
+}

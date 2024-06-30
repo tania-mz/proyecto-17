@@ -1,0 +1,35 @@
+@import url('../style/global.css');
+/*  Para llamar un color solo se pone por ejemplo  background-color: var(--color-fondo);
+  --color-titulo : #5FD3ED;
+  --color-background: #252634;
+  --color-details: #616489;
+  --color-text: #FFFFFF;
+  --color-text-2: #B9B7B7; 
+*/
+
+.App {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #5FD3ED;
+}
+
+header {
+  width: 100vw;
+  background-color: hsla(0, 0%, 0%, 0.54);
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  color:#5FD3ED;
+}
+
+main {
+  padding: 20px;
+  display: block;
+}
+
+

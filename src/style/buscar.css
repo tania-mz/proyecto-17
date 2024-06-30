@@ -1,0 +1,27 @@
+.opciones-busqueda {
+    width: 20%;
+    display: flex; 
+    flex-wrap: wrap;
+    width: 95%;
+}
+
+.styled-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.styled-input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.styled-input::placeholder {
+    color: #999;
+}
