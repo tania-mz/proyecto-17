@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useStateContext } from "../context/stateContext";
-import "../styles/details.css";
+import "../styles/Details.css";
 import { useParams } from "react-router-dom";
 
 function DetailsId() {

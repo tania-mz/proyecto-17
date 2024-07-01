@@ -1,0 +1,96 @@
+.main-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /*   background-color: hwb(180 2% 62%); */
+    padding: 2%;
+    border-radius: 40px;
+}
+
+
+.card-container:hover {
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
+}
+
+.card-container h2 {
+  color: #f4ce14;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.card-celebrity-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.card-celebrity-list p {
+  color: #ffffff;
+}
+
+/* tvShow.css */
+.card-celebrity-list {
+  display: flex;
+  overflow: hidden;
+}
+
+.celebrity-container {
+  margin: 5px;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  text-align: center;
+  flex: 0 0 auto;
+  width: 250px;
+  padding: 10px;
+  text-align: left;
+}
+
+.celebrity-container h3 {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+.movie-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.card-movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.movie-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.trending-preview {
+  padding: 10px;
+  border-radius: 10px;
+  background: #ffffff12;
+  color: white;
+  border: none;
+  margin-bottom: 30px;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.trending-preview:hover {
+  background-color: #ffffff2c;
+  transform: scale(1.001) translateY(-2px);
+  color: white;
+}
