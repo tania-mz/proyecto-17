@@ -1,8 +1,10 @@
-# React + Vite
+Proyecto hecho en React para consumir una API de peliculas y recrear una pagina sobre los datos de esta API.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Link a la pagina: https://6682901162f6531509073a02--cute-medovik-bab83a.netlify.app/
 
-Currently, two official plugins are available:
+Para clonar el repositorio:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `git clone https://github.com/tania-mz/proyecto-17.git`
+- `cd proyecto-17`
+- `npm install`
+- `npm run dev`
