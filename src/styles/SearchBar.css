@@ -1,10 +1,12 @@
 .search-container {
   position: relative;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-around;
   background-color: rgba(43, 42, 42, 0.48);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
 }
 
 .logo {
@@ -14,6 +16,8 @@
 
 .search-container form {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 20px;
 }
 
@@ -23,7 +27,6 @@
   margin-right: 10px;
   background-color: #F4CE14;
   border: none;
-  list-style: none;
   font-size: 18px;
   font-weight: bold;
   color: black;
@@ -106,6 +109,71 @@ option {
 }
 
 .search-dropdown li:hover {
-  background-color: #f0f0f049;
-  color: black
+  background-color: #f0f0f0;
+}
+
+/* Media Queries for Responsive Design */
+
+/* For tablets and larger screens */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+  }
+  
+  .search-container form {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-button-container {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .input-search {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .submit-button,
+  .select-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+  .search-container {
+    padding: 10px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .input-search {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .submit-button,
+  .select-button {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .search-dropdown {
+    width: 100%;
+  }
 }
