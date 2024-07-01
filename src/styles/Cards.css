@@ -20,7 +20,8 @@
   border-radius: 10px; /* Borde redondeado */
   padding: 20px;
   max-width: 1200px; /* Limita el ancho máximo del contenedor */
-  width: 100%;
+  width: 97%;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
@@ -112,3 +113,8 @@ h2 {
   gap: 5px;
 }
 
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

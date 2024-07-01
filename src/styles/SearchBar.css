@@ -82,7 +82,9 @@ option {
   position: absolute;
   top: 100%;
   border-radius: 1rem;
-  width: 42.5%;
+  width: 40%;
+  min-width: 250px;
+  max-width: 1000px;
   max-height: 600px;
   overflow-y: auto;
   z-index: 1;
@@ -109,7 +111,8 @@ option {
 }
 
 .search-dropdown li:hover {
-  background-color: #f0f0f0;
+  background-color: #f0f0f02c;
+  color: black;
 }
 
 /* Media Queries for Responsive Design */
