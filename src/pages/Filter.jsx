@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 import ResultsPage from "../components/ResultsPage";
-import SearchComponent from "../components/SearchComponent";
-import { useStateContext } from '../context/stateContext';
+import { useStateContext } from "../context/stateContext";
 
 function Details() {
+  const { searchType, setSearchType } = useStateContext();
+  const { query, setQuery } = useStateContext();
 
-  const { searchType, setSearchType  } = useStateContext();
-  const { query, setQuery  } = useStateContext();
-
-  return(
+  return (
     <div>
-      <SearchComponent />
       <div>
         <ResultsPage />
       </div>

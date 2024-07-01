@@ -1,0 +1,7 @@
+@import url('../styles/global.css');
+*/
+
+#trendingPeoplePreview {
+    width: 80%;
+    overflow-x: auto;
+}

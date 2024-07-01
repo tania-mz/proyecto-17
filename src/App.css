@@ -1,11 +1,4 @@
-@import url('./style/variable.css');
-/*  Para llamar un color solo se pone por ejemplo  background-color: var(--color-fondo);
-  --color-titulo : #5FD3ED;
-  --color-background: #252634;
-  --color-details: #616489;
-  --color-text: #FFFFFF;
-  --color-text-2: #B9B7B7; 
-*/
+@import url('./styles/variable.css');
 
 * {
   margin: 0;
@@ -16,5 +9,5 @@
 body,
 html {
   font-family: Roboto, Arial, Helvetica, sans-serif;
-  background-color: var(--color-background);
+  background-color: #151515;
 }

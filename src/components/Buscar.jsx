@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import '../style/buscar.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "../styles/buscar.css";
 
-const API_KEY = 'c84b15de02b182bd760ca972c743c53f'; // Recuerda reemplazar 'tu_api_key' con tu clave de API de TMDb
+const API_KEY = "c84b15de02b182bd760ca972c743c53f"; // Recuerda reemplazar 'tu_api_key' con tu clave de API de TMDb
 
 const Buscar = () => {
   const [movies, setMovies] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(''); // Estado para almacenar el término de búsqueda
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para almacenar el término de búsqueda
 
   // Función para buscar películas basadas en el término de búsqueda
   const fetchMovies = async (query) => {
     try {
-      const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`);
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
+      );
       setMovies(res.data.results); // Almacenar los resultados de la búsqueda
     } catch (error) {
-      console.error('Error fetching movies:', error);
+      console.error("Error fetching movies:", error);
     }
   };
 
@@ -48,15 +50,14 @@ const Buscar = () => {
               src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
               alt={movie.title}
             />
-            <p>{ movie.title }</p>
-            <p>{ movie.vote_average }</p>
+            <p>{movie.title}</p>
+            <p>{movie.vote_average}</p>
           </div>
         ))}
       </div>
-      
-        {/* <button onClick={anteriorTestimonio}>Anterior</button>
+
+      {/* <button onClick={anteriorTestimonio}>Anterior</button>
         <button onClick={siguienteTestimonio}>Siguiente</button> */}
-      
     </div>
   );
 };

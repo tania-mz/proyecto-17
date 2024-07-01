@@ -1,0 +1,10 @@
+@import url('../styles/variable.css');
+
+#trendingTvPreview{
+    width: 80%;
+    height: 20%;
+    overflow: unset;
+    border: 1px, #000;
+}
+
+

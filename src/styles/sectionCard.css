@@ -1,11 +1,4 @@
-@import url('../style/global.css');
-/*  Para llamar un color solo se pone por ejemplo  background-color: var(--color-fondo);
-  --color-titulo : #5FD3ED;
-  --color-background: #252634;
-  --color-details: #616489;
-  --color-text: #FFFFFF;
-  --color-text-2: #B9B7B7; 
-*/
+@import url('../styles/global.css');
 
 .trendingPreview-container{
   display: flex;
@@ -109,4 +102,14 @@ h2 {
   cursor: pointer;
   background-color: var(--color-titulo);
   color: #1A1A1A;
+}
+
+.rating {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  gap: 5px;
 }
