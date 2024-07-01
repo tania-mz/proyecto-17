@@ -29,10 +29,10 @@ export default function Card({ cards, nextPage, previousPage, setId, setSearchTy
         </div>
       </div>
       <div className="card-buttons">
-        <button className="previousPage trending-preview" onClick={previousPage}>
+        <button className="previous-page trending-preview" onClick={previousPage}>
           previous
         </button>
-        <button className="nextPage trending-preview" onClick={nextPage}>
+        <button className="next-page trending-preview" onClick={nextPage}>
           next
         </button>
       </div>

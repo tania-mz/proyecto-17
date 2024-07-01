@@ -25,7 +25,7 @@ const TrendingTVPreview = () => {
         const res = await axios.get(
           `https://api.themoviedb.org/3/trending/tv/day?api_key=${API_KEY}&page=${page}`
         );
-        settvShows(res.data.results.slice(index, index + 5));
+        settvShows(res.data.results.slice(index, index + 4));
       } catch (error) {
         console.error("Error fetching trending TV shows:", error);
       }
@@ -40,7 +40,7 @@ const TrendingTVPreview = () => {
   // Funcion para mostrar los 10 resultados siguientes
   const nextPage = () => {
     if (index === 0) {
-      setIndex(index + 10);
+      setIndex(index + 4);
     } else {
       setPage(page + 1);
       setIndex(0);
@@ -51,11 +51,11 @@ const TrendingTVPreview = () => {
   const previousPage = () => {
     if (page === 1 && index === 0) {
       return;
-    } else if (index === 10) {
-      setIndex(index - 10);
+    } else if (index === 4) {
+      setIndex(index - 4);
     } else {
       setPage(page - 1);
-      setIndex(10);
+      setIndex(4);
     }
   };
 
