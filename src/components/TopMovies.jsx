@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useStateContext } from "../context/stateContext";
 import { useNavigate, useParams } from "react-router-dom";
-import Start from '../assets/rating-star.svg'
-
-import "../styles/sectionCard.css"; // Asegúrate de importar el archivo CSS
+import Card from "./Card";
 
 const API_KEY = "c84b15de02b182bd760ca972c743c53f"; // Clave de API de TMDb
 
 const TrendingMoviesPreview = (props) => {
   const navigate = useNavigate();
-  const [movies1, setMovies1] = useState([]);
+  const [movies, setmovies] = useState([]);
 
   const [index, setIndex] = useState(0);
   const [page, setPage] = useState(1);
@@ -24,7 +22,7 @@ const TrendingMoviesPreview = (props) => {
         const res = await axios.get(
           `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=${page}`
         );
-        setMovies1(res.data.results.slice(index, index + 5));
+        setmovies(res.data.results.slice(index, index + 5));
       } catch (error) {
         console.error("Error fetching trending movies:", error);
       }
@@ -38,7 +36,7 @@ const TrendingMoviesPreview = (props) => {
     if (index === 0) {
       setIndex(index + 10);
     } else {
-      setPage(page + 1);
+      setPage(page + 1);    
       setIndex(0);
     }
   };
@@ -56,38 +54,7 @@ const TrendingMoviesPreview = (props) => {
   };
 
   return (
-    <div id="trendingPreview">
-      <div className="trendingPreview-container">
-        <h2>Trending Movies Today</h2>
-        <div className="trendingPreview-movieList">
-          {movies1.map((movie) => (
-            <div key={movie.id} className="movie-container">
-              <img
-                className="movie-img"
-                src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
-                alt={movie.title}
-                onClick={() => (
-                  setId(movie.id),
-                  setSearchType("movie"),
-                  navigate(`/movies/${movie.id}`)
-                )}
-              />
-              <div className="rating">
-                <img src={ Start } alt="Start of movie rating"/>
-                <p>{movie.vote_average}</p>
-              </div>
-              <p>{movie.title}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      <button className="nextPage" onClick={nextPage}>
-        next
-      </button>
-      <button className="previousPage" onClick={previousPage}>
-        previous
-      </button>
-    </div>
+    <Card cards={movies} nextPage={nextPage} previousPage={previousPage} />
   );
 };
 

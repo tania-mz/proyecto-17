@@ -1,22 +1,42 @@
-@import url('../styles/global.css');
-
-.trendingPreview-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: hwb(200 27% 72% / 0.2);
-  padding: 2%;
-  border-radius: 40px;
-  color: var(--color-titulo);
+.card-container {
+  background: #ffffff12;
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(135, 119, 31, 0.37);
+  backdrop-filter: blur(0.85rem);
+  -webkit-backdrop-filter: blur(0.85rem);
+  border-radius: 4rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
 }
 
-.trendingPreview-movieList p {
+.card-container:hover {
+  background: #ffffff12;
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(135, 119, 31, 0.37);
+  backdrop-filter: blur(0.85rem);
+  -webkit-backdrop-filter: blur(0.85rem);
+  border-radius: 2rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
+}
+
+.trending-preview {
+  margin: 10px;
+  border-radius: 1.5rem;
+  width: 70px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.card-movieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.card-movieList p {
   color: #ffffff;
 }
 
 /* tvShow.css */
-.trendingPreview-movieList {
+.card-movieList {
   display: flex;
   overflow: hidden;
 }
@@ -24,7 +44,7 @@
 .movie-container {
   margin: 5px;
   border-radius: 10px;
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
   text-align: center;
   flex: 0 0 auto;
   width: 200px; /* Ajusta este valor según tus necesidades */
@@ -43,7 +63,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-/*   background-color: hwb(200 27% 72% / 0.2); */
+  /*   background-color: hwb(200 27% 72% / 0.2); */
   padding: 0;
   margin: 0;
   border-radius: 40px;
@@ -57,21 +77,19 @@
   border-radius: 50%;
 }
 
-
-#trendingTvPreview, #trendingPeoplePreview, #trendingPreview {
+.main-card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-/*   background-color: hwb(180 2% 62%); */
+  /*   background-color: hwb(180 2% 62%); */
   padding: 2%;
   border-radius: 40px;
   color: var(--color-titulo);
 }
 
-
-.trendingPreview-container {
+.card-container {
   border: 1px #424247; /* Borde adaptable */
   border-radius: 10px; /* Borde redondeado */
   padding: 20px;
@@ -84,7 +102,7 @@ h2 {
   text-align: center;
 }
 
-.trendingPreview-movieList {
+.card-movie-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -97,11 +115,10 @@ h2 {
   border-radius: 10px;
 }
 
-
 .movie-container:hover {
   cursor: pointer;
   background-color: var(--color-titulo);
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .rating {

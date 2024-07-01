@@ -1,6 +1,6 @@
-import TrendingMoviesPreview from "./TrendingMoviesPreview";
-import TrendingTVPreview from "./TrendingTVPreview";
-import TrendingPeoplePreview from "./TrendingPeoplePreview";
+import TrendingMoviesPreview from "./TopMovies";
+import TrendingTVPreview from "./TopTVShows";
+import TrendingPeoplePreview from "./TopCelebrities";
 
 function Home() {
   return (

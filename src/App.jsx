@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import SearchComponent from "./components/SearchComponent";
-import DetailsId from "./components/details";
+import SearchBar from "./components/SearchBar";
+import DetailsId from "./components/Details";
 import Home from "./components/Home";
 
 import Details from "./pages/Filter";
@@ -12,7 +12,7 @@ import "./App.css";
 function App() {
   return (
     <StateContext>
-      <SearchComponent />
+      <SearchBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search/:type/:search" element={<Details />} />

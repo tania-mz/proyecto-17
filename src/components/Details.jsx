@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import SearchComponent from "../components/SearchComponent";
 import { useStateContext } from "../context/stateContext";
 import "../styles/details.css";
 import { useParams } from "react-router-dom";

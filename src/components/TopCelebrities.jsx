@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../styles/sectionCard.css"; // Asegúrate de importar el archivo CSS
 import { useStateContext } from "../context/stateContext";
 import { useNavigate, useParams } from "react-router-dom";
 

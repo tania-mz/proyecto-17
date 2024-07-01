@@ -1,7 +1,4 @@
 /* styles.css */
-@import url('../styles/variable.css');
-
-  
 .container-carrusel {
   display: grid;
 }
