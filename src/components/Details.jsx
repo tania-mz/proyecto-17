@@ -3,31 +3,32 @@ import React, { useState, useEffect } from "react";
 import { useStateContext } from "../context/stateContext";
 import "../styles/details.css";
 import { useParams } from "react-router-dom";
+import Star from "../assets/rating-star.svg"; // Asegúrate de que la ruta sea correcta
 
 function DetailsId() {
   const [information, setInformation] = useState(null);
 
   const { type, ID } = useParams();
 
-  const { searchType, setSearchType, query, setQuery, id, setId } =
-    useStateContext();
-
-  useEffect(() => {
-    fetchData();
-  }, [id]);
-
-  useEffect(() => {
-    // Set searchType only if type is defined
-    if (type) {
-      setSearchType(type);
-    }
-  }, [type]);
+  const { searchType, setSearchType, id, setId } = useStateContext();
 
   useEffect(() => {
     if (ID) {
       setId(ID);
     }
   }, [ID]);
+
+  useEffect(() => {
+    if (type) {
+      setSearchType(type);
+    }
+  }, [type]);
+
+  useEffect(() => {
+    if (id) {
+      fetchData();
+    }
+  }, [id]);
 
   const fetchData = async () => {
     try {
@@ -58,8 +59,7 @@ function DetailsId() {
     <div className="details">
       {information && (
         <div className="details-container">
-          <div>
-            <h1>{information.title || information.name}</h1>
+          <div className="image-container">
             <img
               src={
                 getImageUrl(information.poster_path) ||
@@ -67,53 +67,63 @@ function DetailsId() {
               }
               alt={information.id}
             />
-
-            <p>{information.overview}</p>
           </div>
-          <div className="genres">
-            {searchType !== "person" && <h3>Géneros:</h3>}
-            {information.genres &&
-              information.genres.map((genre, index) => (
-                <p key={index}>{genre.name}</p>
-              ))}
-          </div>
-
-          {searchType === "person" && (
-            <div>
-              <h3>Detalles:</h3>
-              {information.biography ? (
-                <p>
-                  <strong>Biografía:</strong> {information.biography}
-                </p>
-              ) : (
-                ""
-              )}
-              {information.birthday ? (
-                <p>
-                  <strong>Fecha de nacimiento:</strong> {information.birthday}
-                </p>
-              ) : (
-                ""
-              )}
-              {information.deathday ? (
-                <p>
-                  <strong>Fecha de muerte:</strong> {information.deathday}
-                </p>
-              ) : (
-                ""
-              )}
-              {information.also_known_as ? (
-                <div>
-                  <h3>Ver más Personas</h3>
-                  {information.also_known_as.map((element) => (
-                    <p>{element}</p>
-                  ))}
-                </div>
-              ) : (
-                ""
-              )}
+          <div className="info-container">
+            <h1>{information.title || information.name}</h1>
+            <div className="genres">
+              {searchType !== "person" && <h3>Géneros:</h3>}
+              {information.genres &&
+                information.genres.map((genre, index) => (
+                  <p key={index}>{genre.name}</p>
+                ))}
             </div>
-          )}
+            <div className="rating">
+               {[...Array(Math.round(information.vote_average)).keys()].map((i) => (
+               <img key={i} src={Star} alt="Star of movie rating" />
+                 ))}
+              <p>{information.vote_average}</p>
+                </div>
+
+            <div className="description">
+              <p>{information.overview}</p>
+            </div>
+            {searchType === "person" && (
+              <div>
+                <h3>Detalles:</h3>
+                {information.biography ? (
+                  <p>
+                    <strong>Biografía:</strong> {information.biography}
+                  </p>
+                ) : (
+                  ""
+                )}
+                {information.birthday ? (
+                  <p>
+                    <strong>Fecha de nacimiento:</strong> {information.birthday}
+                  </p>
+                ) : (
+                  ""
+                )}
+                {information.deathday ? (
+                  <p>
+                    <strong>Fecha de muerte:</strong> {information.deathday}
+                  </p>
+                ) : (
+                  ""
+                )}
+                {information.also_known_as ? (
+                  <div>
+                    <h3>Ver más Personas</h3>
+                    {information.also_known_as.map((element, index) => (
+                      <p key={index}>{element}</p>
+                    ))}
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
