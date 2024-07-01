@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useStateContext } from '../context/stateContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import '../style/sectionCard.css'; // Asegúrate de importar el archivo CSS
 
@@ -15,10 +15,7 @@ const TrendingMoviesPreview = (props) => {
   const [index, setIndex] = useState(0);
   const [page, setPage] = useState(1);
 
-  const { searchType, setSearchType  } = useStateContext();
-  const { query, setQuery } = useStateContext();
-  const { id, setId } = useStateContext();
-
+  const { searchType, setSearchType, query, setQuery, id, setId } = useStateContext();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -35,11 +32,26 @@ const TrendingMoviesPreview = (props) => {
     fetchMovies();
   }, [index, page])
 
-  const changePage = () => {
+  // Funcion para mostrar los 10 resultados siguientes
+  const nextPage = () => {
     if (index === 0) {
       setIndex(index + 10);
     }else{
       setPage(page + 1);
+      setIndex(0);
+    }
+  };
+
+  // Funcion para mostrar los 10 resultados anteriores
+  const previousPage = () => {
+    if (page === 1 && index === 0) {
+      return;
+    }
+    else if (index === 10) {
+      setIndex(index - 10);
+    }else{
+      setPage(page - 1);
+      setIndex(10);
     }
   };
 
@@ -54,7 +66,7 @@ const TrendingMoviesPreview = (props) => {
                 className="movie-img"
                 src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
                 alt={movie.title}
-                onClick={() => (setId(movie.id), setSearchType('movie'), navigate(`/id/movies/${movie.id}`))}
+                onClick={() => (setId(movie.id), setSearchType('movie'), navigate(`/movies/${movie.id}`))}
               />
               <p>{movie.title}</p>
               <p>{movie.vote_average}</p>
@@ -69,7 +81,7 @@ const TrendingMoviesPreview = (props) => {
                   className="movie-img"
                   src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
                   alt={movie.title}
-                  onClick={() => (setId(movie.id), setSearchType('movie'), navigate(`/id/movies/${movie.id}`))}
+                  onClick={() => (setId(movie.id), setSearchType('movie'), navigate(`/movies/${movie.id}`))}
                 />
                 <p>{movie.title}</p>
                 <p>{movie.vote_average}</p>
@@ -77,7 +89,8 @@ const TrendingMoviesPreview = (props) => {
             ))}
           </div>
       </div>
-      <button className="" onClick={changePage}>next</button>
+      <button className="nextPage" onClick={nextPage}>next</button>
+      <button className="previousPage" onClick={previousPage}>previous</button>
     </div>
   );
 };

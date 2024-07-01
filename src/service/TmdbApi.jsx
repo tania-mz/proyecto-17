@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_KEY = 'fbd275a080fd3aac51146bb6a6946f33';
-const BASE_URL = 'https://api.themoviedb.org/3';
+const BASE_URL = 'https://api.themoviedb.org/3'; // https://api.themoviedb.org/3/apikey=fbd275a080fd3aac51146bb6a6946f33
 
 const tmdbApi = axios.create({
   baseURL: BASE_URL,

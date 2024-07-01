@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useStateContext } from '../context/stateContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import '../style/sectionCard.css';  // Asegúrate de importar el archivo CSS
 
@@ -13,9 +13,8 @@ const TrendingTVPreview = () => {
   const navigate = useNavigate();
   const [tvShows1, setTvShows1] = useState([]); 
   const [tvShows2, setTvShows2] = useState([]); /* Valor y la fomra de actualizar el valor con el useEstate */
-  const { searchType, setSearchType  } = useStateContext();
-  const { query, setQuery } = useStateContext();
-  const { id, setId } = useStateContext();
+  const { searchType, setSearchType, query, setQuery, id, setId } = useStateContext();
+
   const [index, setIndex] = useState(0);
   const [page, setPage] = useState(1);
 
@@ -35,12 +34,26 @@ const TrendingTVPreview = () => {
     fetchTvShows();
   }, [index, page]); /* Este array se pasa de forma opcional, si no se le pasa el código dentro de useEffect se va a ejecutar cada que se renderice el componente*/
 
-  const changePage = () => {
-    console.log("page: ", page, "index: ", index)
+  // Funcion para mostrar los 10 resultados siguientes
+  const nextPage = () => {
     if (index === 0) {
       setIndex(index + 10);
     }else{
       setPage(page + 1);
+      setIndex(0);
+    }
+  };
+
+  // Funcion para mostrar los 10 resultados anteriores
+  const previousPage = () => {
+    if (page === 1 && index === 0) {
+      return;
+    }
+    else if (index === 10) {
+      setIndex(index - 10);
+    }else{
+      setPage(page - 1);
+      setIndex(10);
     }
   };
 
@@ -55,7 +68,7 @@ const TrendingTVPreview = () => {
                 className="movie-img"
                 src={`https://image.tmdb.org/t/p/w300${tvShow.poster_path}`}
                 alt={tvShow.name}
-                onClick={() => (setId(tvShow.id), setSearchType('tv'), navigate(`/id/tvShow/${tvShow.id}`))}
+                onClick={() => (setId(tvShow.id), setSearchType('tv'), navigate(`/tvShow/${tvShow.id}`))}
               />
               <p>{tvShow.name}</p>{/* Nombre de la pelicula */}
               <p>{tvShow.vote_average}</p>{/* Fecha de estreno */}
@@ -70,7 +83,7 @@ const TrendingTVPreview = () => {
                 className="movie-img"
                 src={`https://image.tmdb.org/t/p/w300${tvShow.poster_path}`}
                 alt={tvShow.name}
-                onClick={() => (setId(tvShow.id), setSearchType('tv'), navigate(`/id/tvShow/${tvShow.id}`))}
+                onClick={() => (setId(tvShow.id), setSearchType('tv'), navigate(`/tvShow/${tvShow.id}`))}
               />
               <p>{tvShow.name}</p>{/* Nombre de la pelicula */}
               <p>{tvShow.vote_average}</p>{/* Fecha de estreno */}
@@ -78,7 +91,8 @@ const TrendingTVPreview = () => {
           ))}
         </div>
       </div>    
-      <button className="" onClick={changePage}>next</button>
+      <button className="nextPage" onClick={nextPage}>next</button>
+      <button className="previousPage" onClick={previousPage}>previous</button>
     </div>
   );
 

@@ -3,7 +3,7 @@ import TrendingMoviesPreview from './TrendingMoviesPreview'
 import TrendingTVPreview from './TrendingTVPreview'
 import TrendingPeoplePreview from './TrendingPeoplePreview'
 
-import '../css/Home.css'
+import '../style/sectionCard.css'
 
 function Home() {
 
@@ -12,9 +12,6 @@ function Home() {
       <nav>        
         <SearchComponent/>
       </nav>
-      <header>
-        <h1>Peliculas</h1>
-      </header>
       <main>
         <TrendingMoviesPreview 
         start = {2}
