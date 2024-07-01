@@ -181,7 +181,7 @@ function DetailsId() {
                 onClick={() => (
                   setId(recommendation.id),
                   setSearchType(searchType),
-                  navigate(`/${searchType}/${recommendation.id}/${recommendation.title || recommendation.name}`)
+                  navigate(`/${searchType}/${recommendation.id}}`)
                 )}
               />
               <p>{recommendation.title}</p>
