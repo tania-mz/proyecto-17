@@ -1,11 +1,11 @@
 import Start from "../assets/rating-star.svg";
 import "../styles/Cards.css";
 
-export default function Card({ cards, nextPage, previousPage, setId, setSearchType, navigate, navto, type}) {
+export default function Card({ cards, nextPage, previousPage, setId, setSearchType, navigate, navto, type, message}) {
   return (
     <div className="main-card-container">
       <div className="card-container">
-        <h2>Trending TV Shows Today</h2>
+        <h2>{ message }</h2>
         <div className="card-movie-list">
           {cards.map((card) => (
             <div key={card.id} className="movie-container">

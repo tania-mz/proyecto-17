@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useStateContext } from "../context/stateContext";
 import axios from "axios";
 
+import "../styles/ResultsPage.css";
+
 const constant_genres = [
   { id: 28, name: "Action" },
   { id: 12, name: "Adventure" },
@@ -90,7 +92,7 @@ function ResultsPage() {
   // Funcion para mostrar los 10 resultados siguientes
   const nextPage = () => {
     if (index === 0) {
-      setIndex(index + 10);
+      setIndex(index + 9);
     } else {
       setPage(page + 1);
       setIndex(0);
@@ -101,11 +103,11 @@ function ResultsPage() {
   const previousPage = () => {
     if (page === 1 && index === 0) {
       return;
-    } else if (index === 10) {
-      setIndex(index - 10);
+    } else if (index === 9) {
+      setIndex(index - 9);
     } else {
       setPage(page - 1);
-      setIndex(10);
+      setIndex(9);
     }
   };
 
@@ -119,37 +121,40 @@ function ResultsPage() {
     setGenre(genre + e.target.value + ",");
   };
 
-  const newData = data.slice(index, index + 10);
+  const newData = data.slice(index, index + 9);
   return (
     <div className="">
-      {/* Selection para seleccionar el genero */}
-      Seleccione el genero:
-      <select onClick={handleSelect}>
-        {constant_genres.map((element) => (
-          <option key={element.id} value={element.id}>
-            {element.name}
-          </option>
-        ))}
-      </select>
-      <span>Generos seleccionados: </span>
-      {/* // imprimir genero seleccionado, no por numero si no por nombre */}
-      <div>
-        {genre.split(",").map((element) => {
-          if (element === "") return;
-          return (
-            <p key={element}>
-              {
-                constant_genres.find((genre) => genre.id === parseInt(element))
-                  .name
-              }
-            </p>
-          );
-        })}
+      <div className="select-genre">
+        <h4>Seleccione el genero:</h4>
+        <select onClick={handleSelect}>
+          {constant_genres.map((element) => (
+            <option key={element.id} value={element.id}>
+              {element.name}
+            </option>
+          ))}
+        </select>
       </div>
-      <div className="Container">
-        <div className="Movie">
+      <div className="selected-genres">
+        <span>Generos seleccionados: </span>
+        <div className="selected">
+          {genre.split(",").map((element) => {
+            if (element === "") return;
+            return (
+              <p key={element}>
+                {
+                  constant_genres.find(
+                    (genre) => genre.id === parseInt(element)
+                  ).name
+                }
+              </p>
+            );
+          })}
+        </div>
+      </div>
+      <div className="main-container-result-page">
+        <div className="movie-result-page">
           {newData.map((element) => (
-            <div key={element.id} className="">
+            <div key={element.id} className="movie">
               <img
                 className="movie-images"
                 src={
@@ -170,14 +175,16 @@ function ResultsPage() {
           ))}
         </div>
       </div>
-      <button className="nextPage" onClick={nextPage}>
-        next
-      </button>
-      <button className="previousPage" onClick={previousPage}>
-        previous
-      </button>
+      <div className="button-change-page">
+        <button className="previousPage button" onClick={previousPage}>
+          previous
+        </button>
+        <button className="nextPage button" onClick={nextPage}>
+          next
+        </button>
+      </div>
     </div>
   );
 }
-  
+
 export default ResultsPage;

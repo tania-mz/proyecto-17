@@ -1,3 +1,120 @@
-.Container {
+.main-container-result-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.select-genre {
     display: flex;
+    gap: 20px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-genre select {
+    padding: 10px;
+    border-radius: 10px;
+    background: #ffffff12;
+    align-items: center;
+}
+
+.select-genre h4 {
+    font-size: 15px;
+}
+
+.selected-genres {
+    display: flex;
+    gap: 10px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.selected-genres .selected {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 10px;
+    background: #ffffff12;
+    color: white;
+}
+
+.selected-genres span {
+    font-size: 15px;
+}
+
+.movie-result-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background: #ffffff12;
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(135, 119, 31, 0.37);
+  backdrop-filter: blur(0.85rem);
+  -webkit-backdrop-filter: blur(0.85rem);
+  border-radius: 2rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
+}
+
+.movie:hover {
+  background-color: #ffffff2c;
+  transform: scale(1.01) translateY(-5px);
+  color: white;
+}
+
+.info-container, .info-container + p {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.info-container,
+p {
+  color: white;
+}
+
+.button-change-page {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-change-page .button {
+    padding: 10px;
+    border-radius: 10px;
+    background: #ffffff12;
+    color: white;
+    border: none;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.movie-images {
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .movie-result-page {
+        grid-template-columns: 1fr 1fr;
+    }   
+}
+
+@media screen and (max-width: 650px) {
+    .movie-result-page {
+        grid-template-columns: 1fr;
+    }   
 }

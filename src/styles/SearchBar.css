@@ -40,7 +40,8 @@ option {
 }
 
 .input-search {
-  width: 800px;
+  width: 40vw;
+  min-width: 200px;
   padding: 8px;
   font-size: 16px;
   border-radius: 2rem;

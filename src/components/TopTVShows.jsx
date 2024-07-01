@@ -69,6 +69,7 @@ const TrendingTVPreview = () => {
       navigate={navigate}
       navto="tvShow"
       type="tv"
+      message="Trending TV Shows"
     />
   );
 };

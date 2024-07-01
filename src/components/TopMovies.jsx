@@ -63,6 +63,7 @@ const TrendingMoviesPreview = (props) => {
       navigate={navigate}
       navto="movies"
       type="movie"
+      message="Trending Movies"
     />
   );
 };
