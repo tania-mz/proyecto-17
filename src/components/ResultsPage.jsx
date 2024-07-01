@@ -71,19 +71,6 @@ function ResultsPage() {
           });
           setData(response.data.results);
         }
-
-        // Si genresParams es una cadena, no se puede expandir como un objeto.
-        // Necesitas ajustar cómo se añade a los parámetros.
-        /* const response = await tmdbApi.get(`/${way}/${searchType}`, {
-            params: { 
-              wayForm : query,
-              page,
-              genresParams
-              // Suponiendo que genresParams debe añadirse directamente a la URL, necesitarías otro enfoque
-            }
-          });
-          console.log(response.data); 
-          /* return response.data; */
       } catch (error) {
         console.error("Error fetching discover results:", error);
         throw error;
@@ -92,10 +79,6 @@ function ResultsPage() {
 
     fetchData();
   }, [index, page, searchType, query, genre]); // Asegúrate de que 'genre' se actualice correctamente en getGenres
-  // useEffect(() => {
-  //   if(genre=)
-  //     setGenre(search); // Assuming 'search' contains the ID value
-  // }, [search]);
 
   function getGenres() {
     if (genre.length > 0) {
@@ -196,5 +179,5 @@ function ResultsPage() {
     </div>
   );
 }
-
+  
 export default ResultsPage;

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { fetchSearchResults } from "../service/TmdbApi";
 import { useStateContext } from "../context/stateContext";
-import "../styles/Search.css";
+import logo from "../assets/imdb.png";
+
+import "../styles/SearchBar.css";
 
 const SearchComponent = () => {
   const navigate = useNavigate();
@@ -62,6 +64,9 @@ const SearchComponent = () => {
   };
   return (
     <div className="search-container">
+      <Link to="/">
+        <img className="logo" src={logo} alt="IMDb" />
+      </Link>
       <form onSubmit={handleSearch}>
         <div>
           <select

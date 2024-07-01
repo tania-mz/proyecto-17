@@ -3,7 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: rgba(18, 18, 18, 0.48)
+  background-color: rgba(43, 42, 42, 0.48);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .search-container form {
@@ -80,4 +81,9 @@
 
 .search-dropdown li:hover {
   background-color: #f0f0f0;
+}
+
+.logo {
+  width: 90px;
+  height: 90px;
 }
