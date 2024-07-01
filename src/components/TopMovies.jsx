@@ -36,7 +36,7 @@ const TrendingMoviesPreview = (props) => {
     if (index === 0) {
       setIndex(index + 10);
     } else {
-      setPage(page + 1);    
+      setPage(page + 1);
       setIndex(0);
     }
   };
@@ -54,7 +54,16 @@ const TrendingMoviesPreview = (props) => {
   };
 
   return (
-    <Card cards={movies} nextPage={nextPage} previousPage={previousPage} />
+    <Card
+      cards={movies}
+      nextPage={nextPage}
+      previousPage={previousPage}
+      setId={setId}
+      setSearchType={setSearchType}
+      navigate={navigate}
+      navto="movies"
+      type="movie"
+    />
   );
 };
 

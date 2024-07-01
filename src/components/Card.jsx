@@ -1,7 +1,7 @@
 import Start from "../assets/rating-star.svg";
 import "../styles/Cards.css";
 
-export default function Card({ cards, nextPage, previousPage }) {
+export default function Card({ cards, nextPage, previousPage, setId, setSearchType, navigate, navto, type}) {
   return (
     <div className="main-card-container">
       <div className="card-container">
@@ -15,8 +15,8 @@ export default function Card({ cards, nextPage, previousPage }) {
                 alt={card.name}
                 onClick={() => (
                   setId(card.id),
-                  setSearchType("tv"),
-                  navigate(`/tvShow/${card.id}`)
+                  setSearchType(type),
+                  navigate(`/${navto}/${card.id}`)
                 )}
               />
               <div className="rating">

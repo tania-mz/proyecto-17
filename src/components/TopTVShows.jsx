@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useStateContext } from "../context/stateContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 
 const API_KEY = "c84b15de02b182bd760ca972c743c53f"; // Recuerda reemplazar 'tu_api_key' con tu clave de API de TMDb
@@ -60,7 +60,16 @@ const TrendingTVPreview = () => {
   };
 
   return (
-    <Card cards={tvShows} nextPage={nextPage} previousPage={previousPage} />
+    <Card
+      cards={tvShows}
+      nextPage={nextPage}
+      previousPage={previousPage}
+      setId={setId}
+      setSearchType={setSearchType}
+      navigate={navigate}
+      navto="tvShow"
+      type="tv"
+    />
   );
 };
 

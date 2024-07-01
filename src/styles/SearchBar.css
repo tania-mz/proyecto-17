@@ -77,23 +77,34 @@ option {
 .search-dropdown {
   position: absolute;
   top: 100%;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-top: none;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  max-height: 200px;
+  border-radius: 1rem;
   width: 42.5%;
+  max-height: 600px;
   overflow-y: auto;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #ffffff12;
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(135, 119, 31, 0.37);
+  backdrop-filter: blur(0.85rem);
+  -webkit-backdrop-filter: blur(0.85rem);
+  border-radius: 2rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
+  color: white;
+  font-size: large;
 }
 
 .search-dropdown li {
   padding: 10px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
 }
 
 .search-dropdown li:hover {
-  background-color: #f0f0f0;
+  background-color: #f0f0f049;
+  color: black
 }
